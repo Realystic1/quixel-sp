@@ -1,6 +1,9 @@
 import re
 
-from PySide2 import QtCore, QtGui, QtWidgets
+try:
+	from PySide2 import QtCore, QtGui, QtWidgets
+except ImportError:
+	from PySide6 import QtCore, QtGui, QtWidgets
 
 
 class PainterLineEdit(QtWidgets.QLineEdit):

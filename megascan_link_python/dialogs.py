@@ -7,9 +7,12 @@ and then converted to python code using the buildDialogs.py script
 import importlib
 import webbrowser
 
-import PySide2
-from PySide2 import QtCore, QtGui, QtWidgets
-from PySide2.QtCore import Qt
+try:
+	from PySide2 import QtCore, QtGui, QtWidgets
+	from PySide2.QtCore import Qt
+except ImportError:
+	from PySide6 import QtCore, QtGui, QtWidgets
+	from PySide6.QtCore import Qt
 
 from . import config, log, sockets
 from .ui import error_dialog, icon, painterslider, settings_dialog

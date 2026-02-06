@@ -7,7 +7,10 @@ import socket
 import sys
 import time
 from logging import DEBUG, INFO, WARNING
-from PySide2 import QtCore
+try:
+	from PySide2 import QtCore
+except ImportError:
+	from PySide6 import QtCore
 from . import config, log, websocket_link
 
 
