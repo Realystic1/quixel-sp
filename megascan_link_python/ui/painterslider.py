@@ -1,4 +1,7 @@
-from PySide2 import QtCore, QtGui, QtWidgets
+try:
+	from PySide2 import QtCore, QtGui, QtWidgets
+except ImportError:
+	from PySide6 import QtCore, QtGui, QtWidgets
 import re
 
 class PainterSlider(QtWidgets.QSlider):
@@ -42,5 +45,4 @@ class PainterSlider(QtWidgets.QSlider):
         lineargradient = f'qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #cccccc, stop:{currstop} #cccccc , stop:{currstop+0.01} #666666, stop:1 #666666);'
         newstylesheet = re.sub(r'(QSlider::groove:horizontal (?:.*?\n*?)*?background:)(.*)((?:.*\s*\n*)*)', f"\\1 {lineargradient} \\3", styleSheet)
         self.setStyleSheet(newstylesheet)
-
 

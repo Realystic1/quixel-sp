@@ -8,12 +8,20 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
-    QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
-    QPixmap, QRadialGradient)
-from PySide2.QtWidgets import *
+try:
+    from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
+        QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
+    from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
+        QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
+        QPixmap, QRadialGradient)
+    from PySide2.QtWidgets import *
+except ImportError:
+    from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
+        QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
+    from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
+        QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
+        QPixmap, QRadialGradient)
+    from PySide6.QtWidgets import *
 
 from .painterslidercontrol import PainterSliderControl
 from .painterdropdown import PainterDropDown
@@ -378,4 +386,3 @@ class Ui_Dialog(object):
         self.saveBtn.setText(QCoreApplication.translate("Dialog", u"Save", None))
         self.cancelBtn.setText(QCoreApplication.translate("Dialog", u"Cancel", None))
     # retranslateUi
-

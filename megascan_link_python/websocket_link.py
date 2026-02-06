@@ -1,8 +1,10 @@
 """Module containing classes used to send data over the JS Plugin
 """
 
-import PySide2
-from PySide2 import QtWidgets, QtGui, QtCore
+try:
+	from PySide2 import QtWidgets, QtGui, QtCore
+except ImportError:
+	from PySide6 import QtWidgets, QtGui, QtCore
 from . import log, config
 import json
 
@@ -31,4 +33,3 @@ class WebsocketLink(QtCore.QObject):
 		except Exception as e:
 			log.LoggerLink.Log("WEBSOCKET ERROR: {}".format(str(e)), log.logging.ERROR)
 			log.LoggerLink.Log("CANNOT SEND DATA TO JS", log.logging.ERROR)
-

@@ -1,9 +1,11 @@
 """Contain Helper Functions used in common tasks
 """
 
-import PySide2
 from pathlib import Path
-from PySide2 import QtWidgets
+try:
+	from PySide2 import QtWidgets
+except ImportError:
+	from PySide6 import QtWidgets
 
 def getAbsCurrentPath(append: str) -> str:
 	"""Simple function to get the current script path

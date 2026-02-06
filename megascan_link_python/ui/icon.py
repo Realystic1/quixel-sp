@@ -2,8 +2,10 @@
 """Module containing classes for using and retriving icons files
 """
 import os
-import PySide2
-from PySide2 import QtGui, QtCore
+try:
+	from PySide2 import QtGui, QtCore
+except ImportError:
+	from PySide6 import QtGui, QtCore
 
 def getIcon(name: str) -> str:
     """Return the path to the specified icon
