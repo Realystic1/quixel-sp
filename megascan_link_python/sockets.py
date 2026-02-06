@@ -68,7 +68,7 @@ class SocketThread(QtCore.QThread):
 		# sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 		sock.settimeout(timeout)
 		#bind to an address and port
-		server_address = ('localhost', port)
+		server_address = ('127.0.0.1', port)
 		logger.Log('trying to start up socket on {} with port {} and timeout {}'.format(server_address[0], server_address[1], timeout), INFO)
 		while not self.started:
 			try:
